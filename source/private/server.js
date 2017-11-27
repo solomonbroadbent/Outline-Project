@@ -1,5 +1,5 @@
 import express from 'express';
-import router from './router';
+import router from './router/masterRouter';
 
 const server = express();
 server.use('/', router);

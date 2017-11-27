@@ -1,7 +1,8 @@
 import express from 'express';
+import apiRouter from './api/apiRouter';
+import htmlRouter from './html/htmlRouter';
 
 const router = express.Router();
-router.route('/').get((request, response) => {
-	response.send('Router received request on index');
-});
+router.use('/api', apiRouter);
+router.use('/', htmlRouter);
 export default router;
