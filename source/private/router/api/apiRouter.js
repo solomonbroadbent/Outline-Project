@@ -1,7 +1,8 @@
 import express from 'express';
 
 const apiRouter = express.Router();
-apiRouter.route('/').get((request, response) => {
+const rootRoute = apiRouter.route('/');
+rootRoute.get((request, response) => {
 	response.send('This is the API');
 })
 .all(sendResponseForUnsupportedOperation);
