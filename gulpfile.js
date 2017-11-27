@@ -1,9 +1,18 @@
 var gulp = require('gulp');
 var babel = require('gulp-babel');
-gulp.task('default', function() {
+var nodemon = require('gulp-nodemon');
+gulp.task('default', ['compile', 'run']);
+gulp.task('compile', function() {
 	gulp.src('source/private/server.js')
 	.pipe(babel({
 		"presets": ["env"]
 	}))
-	.pipe(gulp.dest('build/private/server.js'));
+	.pipe(gulp.dest('build/private'));
+});
+gulp.task('run', function() {
+	nodemon({
+		script: 'build/private/server.js',
+		watch: 'source/**/*.*',
+		tasks: ['compile']
+	});
 });
