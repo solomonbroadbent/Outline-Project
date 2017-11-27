@@ -1,8 +1,6 @@
 import express from 'express';
+import router from './router';
 
-const app = express();
-app.get('/', (request, response) => {
-	console.log('We got a response');
-	response.send('It worked yay');
-});
-const server = app.listen(8000, console.log('listening on port 8000'));
+const server = express();
+server.use('/', router);
+server.listen(8000, console.log('listening on port 8000'));
