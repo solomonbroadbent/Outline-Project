@@ -3,7 +3,7 @@ var babel = require('gulp-babel');
 var nodemon = require('gulp-nodemon');
 gulp.task('default', ['compile', 'run']);
 gulp.task('compile', function() {
-	gulp.src('source/private/server.js')
+	gulp.src('source/private/**/*.js')
 	.pipe(babel({
 		"presets": ["env"]
 	}))
