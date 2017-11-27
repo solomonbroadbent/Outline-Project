@@ -11,5 +11,10 @@
     "url": "github.com/solomonbroadbent/Outline-Project"
   },
   "author": "Solomon Broadbent",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "express": "^4.16.2"
+  }
 }
