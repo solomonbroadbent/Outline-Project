@@ -10,25 +10,8 @@ allBillsRoute.all((request, response) => response.send(sendResponseForUnsupporte
 const specificBillsRouteURL = allBillsRouteURL.concat(':id/');
 const specificBillRoute = billsRouter.route(specificBillsRouteURL);
 specificBillRoute.get((request, response) => response.send(200, request.params.id));
+specificBillRoute.put((request, response) => response.send(200, 'updated specific bill'));
 specificBillRoute.all(sendResponseForUnsupportedOperation);
-//Logic for specific bill name related requests
-const specificBillNameRouteURL = specificBillsRouteURL.concat('name');
-const specificBillNameRoute = billsRouter.route(specificBillNameRouteURL);
-specificBillNameRoute.get((request, response) => response.send(200, 'name sent'));
-specificBillNameRoute.put((request, response) => response.send(200, 'name updated'));
-specificBillNameRoute.all(sendResponseForUnsupportedOperation);
-//Logic for specific bill amount related requests
-const specificBillAmountRouteURL = specificBillsRouteURL.concat('amount');
-const specificBillAmountRoute = billsRouter.route(specificBillAmountRouteURL);
-specificBillAmountRoute.get((request, response) => response.send(200, 'amount sent'));
-specificBillAmountRoute.put((request, response) => response.send(200, 'amount updated'));
-specificBillAmountRoute.all(sendResponseForUnsupportedOperation);
-//Logic for specific bill recurrence related requests
-const specificBillRecurrenceRouteURL = specificBillsRouteURL.concat('recurrence');
-const specificBillRecurrenceRoute = billsRouter.route(specificBillRecurrenceRouteURL);
-specificBillRecurrenceRoute.get((request, response) => response.send(200, 'recurrence object sent'));
-specificBillRecurrenceRoute.put((request, response) => response.send(200, 'recurrence object updated'));
-specificBillRecurrenceRoute.all(sendResponseForUnsupportedOperation);
 
 function sendResponseForUnsupportedOperation(request, response) {
 	response.send(501, 'Unfortunately that operation is unsupported');
